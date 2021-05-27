@@ -7,6 +7,8 @@ package practice.dynamicprogramming;
  */
 public class bagproblem {
     /**
+     * TODO 背包问题变种
+     *
      * 0-1背包问题
      *
      * @param W
