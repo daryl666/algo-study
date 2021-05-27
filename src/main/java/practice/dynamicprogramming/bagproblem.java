@@ -8,6 +8,7 @@ package practice.dynamicprogramming;
 public class bagproblem {
     /**
      * 0-1背包问题
+     *
      * @param W
      * @param N
      * @param weights
@@ -15,10 +16,9 @@ public class bagproblem {
      * @return
      */
     public int knapsack(int W, int N, int[] weights, int[] values) {
-        int[][] dp = new int[W][N];
-        dp[0][0] = 0;
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < W; j++) {
+        int[][] dp = new int[W + 1][N + 1];
+        for (int i = 1; i <= N; i++) {
+            for (int j = 1; j <= W; j++) {
                 int w = weights[i];
                 int v = values[i];
                 if (j >= w) {
@@ -28,8 +28,29 @@ public class bagproblem {
                 }
             }
         }
-        return dp[W - 1][N - 1];
+        return dp[W][N];
 
+    }
+
+    /**
+     * 01背包问题 空间优化
+     *
+     * @param W
+     * @param N
+     * @param weights
+     * @param values
+     * @return
+     */
+    public int knapsack2(int W, int N, int[] weights, int[] values) {
+        int[] dp = new int[W + 1];
+        for (int i = 1; i <= N; i++) {
+            for (int j = W; j > 0; j--) {
+                if (j >= weights[i]) {
+                    dp[j] = Math.max(dp[j - weights[i]] + values[i], dp[j]);
+                }
+            }
+        }
+        return dp[W];
     }
 
 }
