@@ -9,7 +9,11 @@ public class ListNode {
 
     private ListNode next;
 
-    private String value;
+    private Integer value;
+
+    public ListNode(Integer value) {
+        this.value = value;
+    }
 
     public ListNode getNext() {
         return next;
@@ -19,11 +23,11 @@ public class ListNode {
         this.next = next;
     }
 
-    public String getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 }
