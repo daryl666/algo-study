@@ -6,6 +6,11 @@ package practice.bitoperation;
  * @date 2021/06/16 15:11
  */
 public class MaximumProductofWordLengths {
+    /**
+     * https://leetcode-cn.com/problems/maximum-product-of-word-lengths/description/
+     * @param words
+     * @return
+     */
     public int maxProduct(String[] words) {
         int n = words.length;
         int[] val = new int[n];
